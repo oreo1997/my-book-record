@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>読書リスト</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <h1>
+        読んだ本のリスト
+    </h1>
+
+    <h2>読んだ本の登録</h2>
+    <form action="/result" method="post">
+        <label for="name">書籍名</label>
+        <input id="name" type="text" name="書籍名">
+        <label for="writer">著者</label>
+        <input id="writer" type="text" name="著者">
+        <label for="read_date">読了日</label>
+        <input id="read_date" type="date" name="読了日">
+        <label for="rank">評価</label>
+        <select id ="rank" name="評価">
+            <option value="☆5">☆5</option>
+            <option value="☆4">☆4</option>
+            <option value="☆3">☆3</option>
+            <option value="☆2">☆2</option>
+            <option value="☆1">☆1</option>
+        </select>
+        <button type="submit" name="登録ボタン">登録</button>
+    </form>
+
+    <h2>あなたが読んだ本</h2>
+    <table border=1>
+        {% for i in header: %}
+        <th scope="col">{{ i }}</th>
+        {% endfor %}
+
+        {% for i in record: %}
+        <tr>
+            {% for j in i: %}
+            <td>{{ j }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>
